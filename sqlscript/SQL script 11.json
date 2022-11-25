@@ -2,7 +2,7 @@
 	"name": "SQL script 11",
 	"properties": {
 		"content": {
-			"query": "select count(*) from factsale",
+			"query": "SELECT TOP (100) [CustomerId] \n,[FirstName] \n,[LastName] \nFROM [Database1].[dbo].[Customer]",
 			"metadata": {
 				"language": "sql"
 			},
