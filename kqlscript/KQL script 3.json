@@ -1,0 +1,16 @@
+{
+	"name": "KQL script 3",
+	"properties": {
+		"content": {
+			"query": " .create table SalesTelemetry ( CustomerId:int32, ProductId:int32, Timestamp:datetime, Url:string)",
+			"metadata": {
+				"language": "kql"
+			},
+			"currentConnection": {
+				"poolName": "asadataexplorer801102",
+				"databaseName": "sales"
+			}
+		},
+		"type": "KqlQuery"
+	}
+}
