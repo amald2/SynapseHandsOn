@@ -1,0 +1,110 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "SparkPool01",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "100932f1-a81e-4fd8-9d3b-77b15b2c5282"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/f43f70f1-af80-4cd6-8ee6-e2f20bd5a8bf/resourceGroups/Synapse-AIAD-801102/providers/Microsoft.Synapse/workspaces/asaworkspace801102/bigDataPools/SparkPool01",
+				"name": "SparkPool01",
+				"type": "Spark",
+				"endpoint": "https://asaworkspace801102.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkPool01",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 3,
+				"cores": 4,
+				"memory": 28,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\n",
+					"\n",
+					"# Read data from Azure Data Explorer table(s)\n",
+					"# Full Sample Code available at: https://github.com/Azure/azure-kusto-spark/blob/master/samples/src/main/python/SynapseSample.py\n",
+					"\n",
+					"kustoDf  = spark.read \\\n",
+					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
+					"    .option(\"spark.synapse.linkedService\", \"kustoPool\") \\\n",
+					"    .option(\"kustoCluster\", \"https://asadataexplorer801102.asaworkspace801102.kusto.azuresynapse.net\") \\\n",
+					"    .option(\"kustoDatabase\", \"sales\") \\\n",
+					"    .option(\"kustoQuery\", \"SalesTelemetry | where Url startswith '/product/search'\") \\\n",
+					"    .load()\n",
+					"\n",
+					"display(kustoDf)\n",
+					""
+				],
+				"execution_count": 5
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "python"
+					}
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"\r\n",
+					"kustoDf  = spark.read \\\r\n",
+					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"kustoPool\") \\\r\n",
+					"    .option(\"kustoCluster\", \"https://asadataexplorer801102.asaworkspace801102.kusto.azuresynapse.net\") \\\r\n",
+					"    .option(\"kustoDatabase\", \"sales\") \\\r\n",
+					"    .option(\"kustoQuery\", \"SalesTelemetry | where Url startswith '/product/search'\r\n",
+					"    .load()\r\n",
+					"kustoDf.count()"
+				],
+				"execution_count": 4
+			}
+		]
+	}
+}
