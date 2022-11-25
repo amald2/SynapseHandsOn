@@ -1,0 +1,12 @@
+{
+	"name": "SQL script 10",
+	"properties": {
+		"content": {
+			"query": null,
+			"metadata": {
+				"language": "sql"
+			}
+		},
+		"type": "SqlQuery"
+	}
+}

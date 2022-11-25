@@ -1,0 +1,16 @@
+{
+	"name": "asadataexplorer801102",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataExplorer",
+		"typeProperties": {
+			"endpoint": "https://asadataexplorer801102.asaworkspace801102.kusto.azuresynapse.net",
+			"database": "sales"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

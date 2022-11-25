@@ -1,0 +1,25 @@
+{
+	"name": "Database1",
+	"properties": {
+		"Name": "Database1",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://tempdata@asadatalake801102.dfs.core.windows.net/Database1",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "asaworkspace801102-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 3,
+		"ObjectId": "bf5c1960-5f8e-4a84-ab15-f58e3f9ccab8"
+	},
+	"type": "DATABASE"
+}

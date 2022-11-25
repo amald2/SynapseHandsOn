@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 9",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT TOP 100\n    jsonContent\n/* --> place the keys that you see in JSON documents in the WITH clause:\n       , JSON_VALUE (jsonContent, '$.key1') AS header1\n       , JSON_VALUE (jsonContent, '$.key2') AS header2\n*/\nFROM\n    OPENROWSET(\n        BULK (\n            'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_066210db-d5c6-4148-9801-484934e79dda_16562b7a-1ece-4341-8434-4173ddbe68b8.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_15169eb7-cf13-430b-8c5d-136e99858c62_41b685e4-68bd-4b95-a269-9a5782c78c1a.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_18b9632a-3c80-4d37-b0fe-aba4e4a38ef9_0836b577-cb9b-4bab-b365-9e37ffbb0620.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_2b39bba7-0662-4c30-a210-2339a5667b6c_b4cb7852-86bb-4c42-a468-e602e3a1f4c0.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_3032a18a-0d58-47e4-8de1-18fb7aa5f7ea_d491919c-a6ec-431d-b363-a81aadbe2382.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_35a33d0d-d974-462d-8305-605d503ae99f_df8cd0ba-5d7f-4563-97ae-10b0133c63fd.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_5165d6f9-2ab7-44fe-8355-af48bea35189_f005bd55-6293-4103-bc24-9d4bb7ef8981.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_5a65ec95-ffa8-46e0-9cc1-099e4e19ebe5_62506036-7ae4-49db-b9c0-f88d0ee72b43.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_8be6de39-b7ea-4684-b03e-e694ff55fcde_0d73c27d-2ceb-4ca7-be9e-71c12bfdfa6c.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_b3dfcad3-9f96-4711-a3fd-4dfce374a71b_23540f30-20b7-4c99-a486-75628ff63a9c.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_bd1a2a42-4bc3-46b2-ac21-ecb07a9b122b_187f52bd-4c6f-429c-8605-9f13c5be8a40.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_c58e57c4-6072-4fe8-a9e4-669481075c8a_6e0863ef-135f-4442-a6a4-d5f290011709.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_cd99bcd4-5c1c-46c9-88d9-b3b287dafce2_127d25e0-0b74-4709-9a60-8250ca29f257.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_d5edf399-752a-4031-b41e-b7ef09b5bb9c_d3bcef86-7fbe-43da-8576-d51803ecddcd.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_dbc934b4-ad41-4bce-ab76-5b0e205876d1_edac209f-fdff-4e6d-96d7-c181aa02da3f.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_f5ae3d50-efc7-416e-880b-f99c463ebf20_37d48129-61dc-4c93-a376-e494b138a2b3.json',\n\t\t\t'https://asadatalake801102.dfs.core.windows.net/dev/bronze/sentiment/data_fb3896ca-f9cf-4ab5-9b98-a2e206e5e5f5_4e56f684-e4af-4afa-ba94-35e3e13000f0.json'\n        ),\n        FORMAT = 'CSV',\n        FIELDQUOTE = '0x0b',\n        FIELDTERMINATOR ='0x0b',\n        ROWTERMINATOR = '0x0b'\n    )\n    WITH (\n        jsonContent varchar(MAX)\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "SQLPool01",
+				"poolName": "SQLPool01"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
