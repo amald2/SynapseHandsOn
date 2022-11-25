@@ -1,8 +1,8 @@
 {
-	"name": "KQL script 1",
+	"name": "KQL script 2",
 	"properties": {
 		"content": {
-			"query": " .create table SalesTelemetry ( CustomerId:int32, ProductId:int32, Timestamp:datetime, Url:string)",
+			"query": "SalesTelemetry\n| where Url startswith \"/product/search\"\n| take 1000",
 			"metadata": {
 				"language": "kql"
 			},
