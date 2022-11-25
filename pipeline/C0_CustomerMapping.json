@@ -1,0 +1,35 @@
+{
+	"name": "C0_CustomerMapping",
+	"properties": {
+		"activities": [
+			{
+				"name": "CustomerMapping_Customer_DataFlow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "CustomerMapping_Customer_DataFlow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"concurrency": 1,
+		"folder": {
+			"name": "CustomerMapping"
+		},
+		"annotations": []
+	}
+}

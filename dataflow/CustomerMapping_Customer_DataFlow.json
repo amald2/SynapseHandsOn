@@ -1,0 +1,31 @@
+{
+	"name": "CustomerMapping_Customer_DataFlow",
+	"properties": {
+		"folder": {
+			"name": "CustomerMapping"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "asadatalake01",
+						"type": "LinkedServiceReference"
+					},
+					"name": "customerSource"
+				}
+			],
+			"sinks": [
+				{
+					"name": "CustomerSink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SelectCustomer"
+				}
+			],
+			"script": "source(output(\n\t\tCustomerId as short,\n\t\tFirstName as string,\n\t\tMiddleInitial as string,\n\t\tLastName as string,\n\t\tFullName as string,\n\t\tGender as string,\n\t\tAge as short,\n\t\tBirthDate as date,\n\t\tAddress_PostalCode as integer,\n\t\tAddress_Street as string,\n\t\tAddress_City as string,\n\t\tAddress_Country as string,\n\t\tMobile as string,\n\t\tEmail as string\n\t),\n\tuseSchema: false,\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tformat: 'delimited',\n\tfileSystem: 'database1-staging',\n\tfileName: 'customer.csv',\n\tcolumnDelimiter: ',',\n\tescapeChar: '\\\\',\n\tquoteChar: '\\\"',\n\tcolumnNamesAsHeader: true) ~> customerSource\ncustomerSource select(mapColumn(\n\t\tCustomerId,\n\t\tFirstName,\n\t\tLastName\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> SelectCustomer\nSelectCustomer sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tstore: 'synapse',\n\tdatabaseType: 'spark',\n\tformat: 'table',\n\tdatabase: 'Database1',\n\ttableName: 'Customer',\n\tinput(\n\t\tCustomerId as integer,\n\t\tFirstName as string,\n\t\tLastName as string\n\t)) ~> CustomerSink"
+		}
+	}
+}

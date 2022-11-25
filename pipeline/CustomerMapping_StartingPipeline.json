@@ -1,0 +1,24 @@
+{
+	"name": "CustomerMapping_StartingPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "C0_CustomerMapping",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "C0_CustomerMapping",
+						"type": "PipelineReference"
+					}
+				}
+			}
+		],
+		"concurrency": 1,
+		"folder": {
+			"name": "CustomerMapping"
+		},
+		"annotations": []
+	}
+}
